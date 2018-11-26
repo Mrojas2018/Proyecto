@@ -75,7 +75,7 @@ public class PromedioCalculadora {
 		Notas = new double[M];
 
 		RegistroDatos(Cursos, Notas, Alumnos, intro);
-		
+		Promedio = PromedioN(Notas);
 		
 		
 	}
