@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public class operaciones_binarias {
 	
-	//convierte decimal fraccionario a binario
-	public static double dec_bin(double valor){
+	//convierte decimal fraccionario a base x
+	public static double dec_base(double valor,int base){
 		
 		double binario=0;
 		double modulo=0;
@@ -25,10 +25,10 @@ public class operaciones_binarias {
         binario=0;
         while((int)valor!=0){
         		//calcula el resto del valor
-                modulo = (int)(valor % 2);                
+                modulo = (int)(valor % base);               
                 binario =(double) (binario+(modulo * Math.pow(10, exp)));  
                 exp++;
-                valor = valor/2;
+                valor = valor/base;
         }
         
         resultado=binario;
@@ -38,10 +38,10 @@ public class operaciones_binarias {
 		if (cantidad>0){
 			//mientras cantidad sea distinto de 1
 			while (cantidad!=1){
-				modulo=(int)(cantidad*2);
+				modulo=(int)(cantidad*base);
 				binario= (double)(binario+(modulo*Math.pow(10, exp)));
 				exp--;
-				cantidad=cantidad*2;
+				cantidad=cantidad*base;
 				if (cantidad>1){
 					cantidad=cantidad-1;
 				}
@@ -54,8 +54,8 @@ public class operaciones_binarias {
 		resultado=resultado+binario;
 		return resultado;
 	}
-	//convierte binario, no fraccionario, a entero
-	public static int bin_dec(int valor){
+	//convierte numero de base x, no fraccionario, a decimal
+	public static int base_dec(int valor,int base){
 		int modulo;
 		int resultado;
 		
@@ -65,19 +65,14 @@ public class operaciones_binarias {
 		while(valor>0){
 			//saca cada dígito (de la unidad)
 			modulo=valor%10;
-			switch(modulo){
-			case 0:
-				exp++;
-				valor=valor/10;
-				break;
-			case 1:decimal=(int) (decimal+(modulo*Math.pow(2, exp)));
-				exp++;
-				valor=valor/10;
-				break;
-			default:System.out.println("Número binario no válido");				
+			if (modulo>base){
+				System.out.println("Número no válido");				
 				resultado=-1;
 				valor=0;
-				break;
+			}else{
+				decimal=(int) (decimal+(modulo*Math.pow(base, exp)));
+				exp++;
+				valor=valor/10;
 			}
 		}
 		
@@ -222,7 +217,34 @@ public class operaciones_binarias {
 		}		
 		return suma;
 	}
-	
+	public static void cambio_base(){
+		Scanner nro=new Scanner(System.in);
+		int n1,n2,n3;
+		int numero;
+		System.out.println("Ingrese número a convertir:");
+		n1=nro.nextInt();
+		
+		System.out.println("Ingrese su base:");
+		n2=nro.nextInt();
+		
+		System.out.println("Ingrese base de número a convertir:");
+		n3=nro.nextInt();
+
+		numero= base_dec(n1,n2);
+		
+		if (n3==16){
+			String resultado= dec_hex((double)n1);
+			System.out.println("El número "+n1+" de base "+n2+" convertido a hexadecimal es "+resultado);
+		}else{
+			if(n3==10){
+				System.out.println("El número "+n1+" de base "+n2+" convertido a decimal es "+numero);
+			}else{
+				numero=(int) dec_base(numero,n3);
+				System.out.println("El número "+n1+" de base "+n2+" convertido a base "+n3+" es "+numero);
+			}
+		}
+		
+	}
 	public static void binario(){
 		Scanner nro= new Scanner(System.in);
 		double suma=0;
@@ -241,7 +263,7 @@ public class operaciones_binarias {
 				suma=a+b;
 				
 				System.out.println("La suma de los números decimales "+a+" y "+b+" es: "+suma);
-				respuesta=dec_bin(suma);
+				respuesta=dec_base(suma,2);
 				System.out.println("Y su suma en binarios (base 2) es: "+respuesta+"\n");
 				aux=false;
 				
@@ -332,22 +354,24 @@ public class operaciones_binarias {
 						hexadecimal();
 						break;
 					case 3: System.out.println("3) Ha seleccionado cambio de base desde sistema numérico");
+						cambio_base();
 						break;
 					case 4: System.out.println("4) Ha seleccionado transformación de números");
 					
 					while(!aux){
+						op_1=false;
 						System.out.println("Seleccione opción:"+"\n"+"	1) Desde número decimal a Binario"+"\n"+"	2) Desde número binario a decimal"+
 						"\n"+"	3) Desde número decimal a Hexadecimal"+"\n"+"	4) Desde número Hexadecimal a Decimal"+"\n"+"	5) Volver");
 						opcion=entrada.nextInt();
 						switch(opcion){
 							case 1: System.out.println("Ingrese un número decimal");
 								valor=entrada.nextDouble();
-								resultado=dec_bin(valor);
+								resultado=dec_base(valor,2);
 								System.out.println("El número decimal "+valor+" en binario(base 2) es: "+resultado);
 								break;
 							case 2: System.out.println("Ingrese un número binario");
 								valor=entrada.nextDouble();
-								resultado=bin_dec((int)valor);
+								resultado=base_dec((int)valor,2);
 								System.out.println("El número binario "+(int)valor+" en decimal (base 10) es: "+resultado);
 								break;
 							case 3: System.out.println("Ingrese un número decimal");
@@ -361,15 +385,16 @@ public class operaciones_binarias {
 								System.out.println("El número hexadecimal "+hexadecimal+" en decimal es: "+valor);
 								break;
 							case 5: aux=true;
+									op_1=true;
 								break;
 							default:System.out.println("Debe seleccionar opción entre 1 y 5");
 								break;
 						}
 						
+						while(!op_1){
 						System.out.println("¿Que desea realizar ahora?"+"\n"+"	1) Transformar otro valor"+"\n"+"	2) Volver");
 						opcion=entrada.nextInt();						
 						
-						while(!op_1){
 							if (opcion==2){
 								op_1=true;
 							}else{
@@ -382,7 +407,7 @@ public class operaciones_binarias {
 								}	
 							}											
 						}
-				}
+					}
 						break;
 				case 5: salir=true;
 						break;
@@ -397,4 +422,4 @@ public class operaciones_binarias {
 		}
 		//entrada.close();
 	}
-
+}
