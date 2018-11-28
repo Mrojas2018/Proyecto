@@ -1,83 +1,53 @@
 import java.util.Scanner;
-public class PromedioCalculadora {
+public class matriz_tri {
 
-	
-	// Subrutina para el ingreso de datos
-	
-	public static void RegistroDatos(String Cursos[], double Notas[], String Alumnos[], Scanner intro) {
-		
-		for (int k=0; k<Cursos.length; k++) {
-			System.out.print("Ingrese el curso ");
-			Cursos[k]= intro.next();
-		}
-		
-		for (int i=0; i<Alumnos.length; i++) {
-			System.out.print("Ingrese el nombre del alumno ");
-			Alumnos[i]= intro.next();
-		}
-		
-		for (int j=0; j<Notas.length; j++) {
-			System.out.print("Ingrese las notas ");
-			Notas[j]= intro.nextDouble();
-		}
-	}
-	
-	// Subrutinas para calculo de promedios
-	
-	public static double PromedioN(double Notas[], String Alumnos[]) {
-		double promAlumno;
-		Suma=0;
-		for (int i=0; i<Notas.length; i++) {  
-			suma = suma + Notas[i];
-			promAlumno= suma / Notas.length;  //promedio de notas por alumno???
-		}
-		return promAlumno;
-	}
-	
-	public static double PromedioC(double PromedioAlumnos[], String Alumnos[]) { //declarar arreglo de promedio de notas de alumnos
-		double promCurso;
-	
-		for (int j=0; j<PromedioAlumnos.length; j++) {  //crear arreglo con promedios de cada alumno para sacar promedio del curso
-		suma = suma + PromedioAlumnos[j];
-		promCurso= suma / PromedioAlumno.length;  //promedio de notas por Curso???
-		}
-		return promCurso;
-	}
-	
-	
-	
-	//Programa Principal
-	
 	public static void main(String[] args) {
-		Scanner intro = new Scanner(System.in);
-		
-		String Cursos[]; //Revisar tipo de variable
-		double Notas[];
-		String Alumnos[];
-		int P;
-		int N;
-		int M;
-		double PromedioCurso;
-		double PromedioAlumno;
-		double SumaDatos;
-		
-		System.out.print("Ingrese el nivel del curso ");
-		P = intro.nextInt();
-		
-		System.out.print("Ingrese la cantidad de alumnos ");
-		N = intro.nextInt();
-		
-		System.out.print("Ingrese el número de notas ");
-		M = intro.nextInt();
-		
-		Cursos = new String[P];
-		Alumnos = new String[N];
-		Notas = new double[M];
 
-		RegistroDatos(Cursos, Notas, Alumnos, intro);
-		Promedio = PromedioN(Notas);
+
+// Declaración de variables
+		int N; int M; int P; int sumadatos;
+		double acumulador; int sumanotas;
+		double promedioAlumno; double promedioCurso;
+		double sumapromAlumnos;
 		
+// Creación de matriz tridimensional	
+		double A[][][] = new double [P][N][M];
 		
+// Entrada de datos 
+	// Lectura nivel del Curso
+		System.out.print("Ingrese el nivel del curso ");
+		P = sc.next();
+		
+	// Lectura cantidad de Alumnos. Debe ser Positivo
+		do { 
+			System.out.print("Ingrese cantidad de alumnos del curso ");
+			N = sc.nextInt();
+		}	While (N <= 0);
+		
+	// Lectura número de Notas. Debe ser Positivo
+		do {
+			System.out.print("Ingrese el número de Notas ");
+			M = sc.nextInt();
+		}	While (M <= 0);
+		
+	// LLenado de Datos en Matriz
+		
+		for (int i=0; i<1 ;i++) {  // Iteración del nivel del curso. Sólo ocupa 1 posición
+			sumanotas = 0;
+		
+			for (int j=0; j<N.length; j++) {  // Iteración cantidad de Alumnos
+				acumulador = 0;
+				
+				for (int k=0; k<M.length; k++) {  // Iteración número de Notas
+					acumulador = acumulador + A[i][j][k];
+					
+					
+				sumanotas = sumanotas + (acumulador/k);
+				promedioAlumno = (sumanotas/k.length);
+				sumadatos = i.length + j.length + k.length;
+				promedioCurso = (sumapromAlumnos/j.length);
+				
+	 // Falta imprimir resultados	
 	}
 
 }
