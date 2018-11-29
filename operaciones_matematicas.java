@@ -71,13 +71,41 @@ public class operaciones_matematicas {
 						break;
 				}
 								
-			//si se ingreso un caracter distinto a un número, o surge algún error
-			}catch (InputMismatchException e) {
-				System.out.println("Debe insertar una opción entre 1 y 5");
-				entrada.next();			
+				//si se ingreso un caracter distinto a un número, o surge algún error
+				}catch (InputMismatchException e) {
+					System.out.println("Debe insertar una opción entre 1 y 5");
+					teclado.next();			
+				}	
 			}
-			
 		}
-		entrada.close();
-	}
+				
+
+
+			
+			public static double suma (double A,double B) {
+				double respuesta=(A+B);
+				return respuesta;
+			}
+			 public static double resta (double c, double d){
+          	   double respuesta =(c-d);
+          	   return respuesta;
+			 }
+			 
+			 public static double potencia(double j, double k){
+				double potencia=0;
+				double x=0;
+				double nro=j;
+				
+				for(int i=0; i<k-1; i++){
+					x=0;
+					potencia=0;
+					while(x<j){
+					potencia= potencia+nro;
+					x++;
+					}
+					nro=potencia;
+					
+				}
+				 return potencia;
+			 }
 }
