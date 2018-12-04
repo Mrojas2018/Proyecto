@@ -46,7 +46,19 @@ public class operaciones_matematicas {
 											
 						case 3: 
 						//Multiplicación de dos elementos.
-								              
+						System.out.println("Multiplicación de dos números.");
+						System.out.println();
+						double x=0,y=0,respuesta;
+						Scanner teclado=new Scanner(System.in);
+						System.out.print("Ingrese el primer número: ");
+						x=teclado.nextDouble();
+						System.out.print("ingrese el segundo número: ");
+						y=teclado.nextDouble();
+						respuesta=multiplicación(x,y);
+						teclado.close();
+				
+						System.out.print("El resultado de la multiplicación "+x+"x"+y+" es: "+respuesta);
+	}	              
 						break;
 										 
 						case 4: 
@@ -90,7 +102,13 @@ public class operaciones_matematicas {
           	   double respuesta =(c-d);
           	   return respuesta;
 			 }
-			 
+			 public static double multiplicación(double x, double y) {
+				int i=0;
+				double mult=0;
+				while(i<y){
+				mult= mult+x;
+				i++;		
+			}			 
 			 public static double potencia(double j, double k){
 				double potencia=0;
 				double x=0;
