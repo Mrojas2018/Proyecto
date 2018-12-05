@@ -86,7 +86,7 @@ public class promedios {
 							j=sc.nextInt();
 							contador=0;
 							acumulador=0;
-							System.out.println("¿Dese ponderar las notas?"+"\n"+"	1)Si"+"\n"+"	2)No");
+							System.out.println("¿Desea ponderar las notas?"+"\n"+"	1)Si"+"\n"+"	2)No");
 							op=0;
 							op=sc.nextInt();
 							for (k=1; k<=M; k++){
@@ -130,6 +130,15 @@ public class promedios {
 							promedioCurso=acumulador/contador;
 							System.out.println("El promedio del curso:"+A[i][0][0]+" es "+promedioCurso);
 						}
+					}
+								System.out.println("Elija una opción"+"\n"+"	1) Volver a calcular media"+"\n"+"	2)Volver a menú anterior");
+					op=sc.nextInt();
+					switch(op){
+					case 1: break;
+					case 2:salir=true;
+					break;
+					default: System.err.println("opción no válida");
+					break;
 					}
 				}
 	}
