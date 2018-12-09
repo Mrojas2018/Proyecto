@@ -79,7 +79,7 @@ public class operaciones_matematicas {
 						a = entrada.nextDouble();
 						System.out.print("Ingrese el exponente: ");
 						b = entrada.nextDouble(); 
-						respuesta=potencia(a,b);
+						respuesta=pow(a,b);
 						System.out.println("El resultado de la potencia de base  "+ a +" elevada a "+ b +" es: "+respuesta);
 						break;
 
@@ -132,7 +132,7 @@ public class operaciones_matematicas {
           	return respuesta;
 		}
 
-		public static double potencia(double j, double k){
+		public static double pow(double j, double k){
 			double potencia=0;
 			double x=0;
 			double nro=j;
@@ -148,7 +148,7 @@ public class operaciones_matematicas {
 				x=0;
 				potencia=0;
 				while(x<j){
-				potencia=suma(potencia,nro);
+				potencia=multiplicacion(j,nro);
 				x++;
 				}
 				nro=potencia;
@@ -161,7 +161,7 @@ public class operaciones_matematicas {
 						x=0;
 						potencia=0;
 						while(x>j){
-							potencia=suma(potencia,nro);
+							potencia=multiplicacion(j,nro);
 							x--;
 						}
 						nro=potencia;
