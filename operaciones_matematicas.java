@@ -38,6 +38,7 @@ public class operaciones_matematicas {
 						case 2 : 
 						//Resta de dos elementos.
 						System.out.println("Resta de dos números.");
+						System.out.println();
 						System.out.print("Ingrese el primer número: ");
 						a = entrada.nextDouble();
 						System.out.print("Ingrese el segundo número: ");
@@ -48,6 +49,8 @@ public class operaciones_matematicas {
 
 						case 3:
 						//Multiplicación de dos elementos.
+						System.out.println("Multiplicación de dos números.");
+						System.out.println();
 						System.out.println("Ingrese factor 1");
 						a=entrada.nextDouble();
 						System.out.println("Ingrese factor 2");
@@ -58,6 +61,8 @@ public class operaciones_matematicas {
 										 
 						case 4: 
 						//División de dos elementos.
+						System.out.println("División de dos números.");
+						System.out.println();
 						System.out.println("Ingrese dividendo");
 						a=entrada.nextDouble();
 						System.out.println("Ingrese divisor");
