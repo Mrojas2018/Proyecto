@@ -32,7 +32,7 @@ public class operaciones_matematicas {
 						respuesta=suma(a,b);
 							
 							
-						System.out.println("El resultado de la suma ("+a+"+"+b+") es: "+respuesta);
+						System.out.println("El resultado de la suma "+a+"+"+b+" es: "+respuesta);
 						break;
 						
 						case 2 : 
