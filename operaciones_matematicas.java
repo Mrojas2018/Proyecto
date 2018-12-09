@@ -81,20 +81,20 @@ public class operaciones_matematicas {
 						case 6: salir=true;
 						continue;
 				}
-					System.out.println("¿Que desea hacer ahora?.."+"\n"+"	1)Elegir otra opción"+"\n"+"	2)Salir");
+					System.out.println("¿Qué desea hacer ahora?"+"\n"+"	1)Elegir otra opción."+"\n"+"	2)Salir.");
 					opcion=entrada.nextInt();
 					switch (opcion){					
 					case 1:break;
 					case 2:
 						salir=true;
 						break;
-					default:System.out.println("Opcion incorrecta");
+					default:System.out.println("Opcion incorrecta.");
 						entrada.next();
 						break;
 					}
 				//si se ingreso un caracter distinto a un número, o surge algún error
 				}catch (InputMismatchException e) {
-					System.out.println("Debe insertar una opción entre 1 y 5");
+					System.out.println("Debe insertar una opción entre 1 y 5.");
 					entrada.next();
 				}
 			}
