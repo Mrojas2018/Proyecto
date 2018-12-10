@@ -17,6 +17,7 @@ public class operaciones_matematicas {
 				System.out.print("Elija una opción"+"\n"+"	1) Sumar 2 elementos"+"\n"+
 						"	2) Restar 2 elementos"+"\n"+"	3) Multiplicar 2 elementos"+"\n"+
 						"	4) Dividir 2 elementos"+"\n"+"	5) Potencia"+"\n"+"	6) Volver"+"\n");
+				System.out.print("Ingrese opción: "+"\n");
 				opcion=entrada.nextInt();
 				
 				switch(opcion){
